@@ -1,0 +1,28 @@
+{
+  "name": "qlik-picasso-q",
+  "version": "1.0.0",
+  "description": "Создание графика с помощью picasso.js используя данные из qHyperCube",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-shulenin/qlik-picasso-q.git"
+  },
+  "keywords": [
+    "qlik",
+    "picasso",
+    "qHyperCube"
+  ],
+  "author": "Ilya Shulenin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/i-shulenin/qlik-picasso-q/issues"
+  },
+  "homepage": "https://github.com/i-shulenin/qlik-picasso-q#readme",
+  "dependencies": {
+    "picasso-plugin-q": "^0.30.0",
+    "picasso.js": "^0.30.0"
+  }
+}
