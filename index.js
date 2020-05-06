@@ -1,14 +1,11 @@
-import "./style.css";
+import './style.css';
 
-import picasso from "picasso.js";
-import picassoQ from "picasso-plugin-q";
+import picasso from 'picasso.js';
+import picassoQ from 'picasso-plugin-q';
 
-picasso.use(picassoQ); // register q plugin in order to handle hypercube format
+picasso.use(picassoQ);
 
-// ------- DATA -------
-// 2 dimension, the 2nd dimension contains an attribute expression for color encoding
-// 1 measure
-var layout = {
+const layout = {
   qHyperCube: {
     qSize: {
       qcx: 3,
@@ -16,63 +13,23 @@ var layout = {
     },
     qDimensionInfo: [
       {
-        qFallbackTitle: "Product Group",
-        qApprMaxGlyphCount: 19,
-        qCardinal: 17,
+        qFallbackTitle: "Месяц",
+        qApprMaxGlyphCount: 8,
+        qCardinal: 12,
         qSortIndicator: "A",
-        qGroupFallbackTitles: ["Product Group"],
-        qGroupPos: 0,
-        qStateCounts: {
-          qLocked: 0,
-          qSelected: 3,
-          qOption: 0,
-          qDeselected: 0,
-          qAlternative: 14,
-          qExcluded: 0,
-          qSelectedExcluded: 0,
-          qLockedExcluded: 0
-        },
-        qTags: ["$ascii", "$text"],
-        qDimensionType: "D",
-        qGrouping: "N",
-        qNumFormat: {
-          qType: "R",
-          qnDec: 14,
-          qUseThou: 1,
-          qFmt: "##############",
-          qDec: ".",
-          qThou: ","
-        },
-        qIsAutoFormat: true,
-        qGroupFieldDefs: ["Product Group Desc"],
-        qMin: "NaN",
-        qMax: "NaN",
-        qAttrExprInfo: [],
-        qAttrDimInfo: [],
-        qCardinalities: {
-          qCardinal: 17,
-          qHypercubeCardinal: 3
-        },
-        title: "Product Group"
-      },
-      {
-        qFallbackTitle: "Product Sub Group Desc",
-        qApprMaxGlyphCount: 17,
-        qCardinal: 70,
-        qSortIndicator: "A",
-        qGroupFallbackTitles: ["Product Sub Group Desc"],
+        qGroupFallbackTitles: ["Месяц"],
         qGroupPos: 0,
         qStateCounts: {
           qLocked: 0,
           qSelected: 0,
-          qOption: 6,
+          qOption: 12,
           qDeselected: 0,
           qAlternative: 0,
-          qExcluded: 64,
+          qExcluded: 0,
           qSelectedExcluded: 0,
           qLockedExcluded: 0
         },
-        qTags: ["$ascii", "$text"],
+        qTags: ["$text", "$keypart"],
         qDimensionType: "D",
         qGrouping: "N",
         qNumFormat: {
@@ -80,220 +37,335 @@ var layout = {
           qnDec: 14,
           qUseThou: 1,
           qFmt: "##############",
-          qDec: ".",
-          qThou: ","
+          qDec: ","
         },
         qIsAutoFormat: true,
-        qGroupFieldDefs: ["Product Sub Group Desc"],
+        qGroupFieldDefs: ["Месяц"],
         qMin: "NaN",
         qMax: "NaN",
-        qAttrExprInfo: [
-          {
-            qMin: 4278190208,
-            qMax: 4278222848,
-            qFallbackTitle:
-              "=if([Product Group Desc]='Baked Goods', green(), blue())", // color by epxression
-            qMinText: "RGB(0,0,128)",
-            qMaxText: "RGB(0,128,0)",
-            id: "cellBackgroundColor"
-          }
-        ],
+        qAttrExprInfo: [],
         qAttrDimInfo: [],
         qCardinalities: {
-          qCardinal: 70,
-          qHypercubeCardinal: 6
+          qCardinal: 12,
+          qHypercubeCardinal: 12
         },
-        title: "Product Sub Group Desc"
+        autoSort: false,
+        cId: "QTSeaT",
+        othersLabel: "Others"
       }
     ],
     qMeasureInfo: [
       {
-        qFallbackTitle: "# of Products",
-        qApprMaxGlyphCount: 2,
+        qFallbackTitle: "Количество работников",
+        qApprMaxGlyphCount: 7,
         qCardinal: 0,
         qSortIndicator: "D",
         qNumFormat: {
-          qType: "I",
-          qnDec: 0,
-          qUseThou: 1,
-          qFmt: "###0",
-          qDec: "."
+          qType: "F",
+          qnDec: 2,
+          qUseThou: 0,
+          qFmt: "# ##0",
+          qDec: ",",
+          qThou: " "
         },
-        qMin: 2,
-        qMax: 17,
-        qIsAutoFormat: true,
+        qMin: 49370,
+        qMax: 123354,
         qAttrExprInfo: [],
-        qAttrDimInfo: []
+        qAttrDimInfo: [],
+        autoSort: true,
+        cId: "GJpES",
+        numFormatFromTemplate: true,
+        series: {
+          type: "bar",
+          axis: 0,
+          marker: "circle",
+          markerFill: true
+        },
+        isCustomFormatted: false
+      },
+      {
+        qFallbackTitle: "Количество МО",
+        qApprMaxGlyphCount: 5,
+        qCardinal: 0,
+        qSortIndicator: "D",
+        qNumFormat: {
+          qType: "F",
+          qnDec: 2,
+          qUseThou: 0,
+          qFmt: "# ##0",
+          qDec: ",",
+          qThou: " "
+        },
+        qMin: 296,
+        qMax: 522,
+        qAttrExprInfo: [],
+        qAttrDimInfo: [],
+        autoSort: true,
+        cId: "dCqwpu",
+        numFormatFromTemplate: true,
+        series: {
+          axis: 1,
+          type: "line"
+        },
+        isCustomFormatted: false
       }
     ],
-    qEffectiveInterColumnSortOrder: [0, 2, 1],
+    qEffectiveInterColumnSortOrder: [0, 1, 2],
+    qGrandTotalRow: [
+      {
+        qText: "992 013",
+        qNum: 992013,
+        qElemNumber: -1,
+        qState: "X",
+        qIsTotalCell: true
+      },
+      {
+        qText: "5 898",
+        qNum: 5898,
+        qElemNumber: -1,
+        qState: "X",
+        qIsTotalCell: true
+      }
+    ],
     qDataPages: [
       {
         qMatrix: [
           [
             {
-              qText: "Alcoholic Beverages",
+              qText: "январь",
               qNum: "NaN",
+              qElemNumber: 10,
+              qState: "O"
+            },
+            {
+              qText: "80 201",
+              qNum: 80201,
               qElemNumber: 0,
-              qState: "S"
+              qState: "L"
             },
             {
-              qText: "Wine",
-              qNum: "NaN",
-              qElemNumber: 1,
-              qState: "O",
-              qAttrExps: {
-                qValues: [
-                  {
-                    qText: "RGB(0,0,128)",
-                    qNum: 4278190208
-                  }
-                ]
-              }
-            },
-            {
-              qText: "17",
-              qNum: 17,
+              qText: "519",
+              qNum: 519,
               qElemNumber: 0,
               qState: "L"
             }
           ],
           [
             {
-              qText: "Alcoholic Beverages",
+              qText: "февраль",
               qNum: "NaN",
-              qElemNumber: 0,
-              qState: "S"
+              qElemNumber: 9,
+              qState: "O"
             },
             {
-              qText: "Beer",
-              qNum: "NaN",
+              qText: "67 148",
+              qNum: 67148,
               qElemNumber: 0,
-              qState: "O",
-              qAttrExps: {
-                qValues: [
-                  {
-                    qText: "RGB(0,0,128)",
-                    qNum: 4278190208
-                  }
-                ]
-              }
+              qState: "L"
             },
             {
-              qText: "6",
-              qNum: 6,
+              qText: "514",
+              qNum: 514,
               qElemNumber: 0,
               qState: "L"
             }
           ],
           [
             {
-              qText: "Baked Goods",
+              qText: "март",
               qNum: "NaN",
-              qElemNumber: 1,
-              qState: "S"
+              qElemNumber: 5,
+              qState: "O"
             },
             {
-              qText: "Sliced Bread",
+              qText: "106 192",
+              qNum: 106192,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "512",
+              qNum: 512,
+              qElemNumber: 0,
+              qState: "L"
+            }
+          ],
+          [
+            {
+              qText: "апрель",
+              qNum: "NaN",
+              qElemNumber: 1,
+              qState: "O"
+            },
+            {
+              qText: "80 236",
+              qNum: 80236,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "520",
+              qNum: 520,
+              qElemNumber: 0,
+              qState: "L"
+            }
+          ],
+          [
+            {
+              qText: "май",
               qNum: "NaN",
               qElemNumber: 4,
-              qState: "O",
-              qAttrExps: {
-                qValues: [
-                  {
-                    qText: "RGB(0,128,0)",
-                    qNum: 4278222848
-                  }
-                ]
-              }
+              qState: "O"
             },
             {
-              qText: "13",
-              qNum: 13,
+              qText: "123 354",
+              qNum: 123354,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "522",
+              qNum: 522,
               qElemNumber: 0,
               qState: "L"
             }
           ],
           [
             {
-              qText: "Baked Goods",
-              qNum: "NaN",
-              qElemNumber: 1,
-              qState: "S"
-            },
-            {
-              qText: "Muffins",
+              qText: "июнь",
               qNum: "NaN",
               qElemNumber: 3,
-              qState: "O",
-              qAttrExps: {
-                qValues: [
-                  {
-                    qText: "RGB(0,128,0)",
-                    qNum: 4278222848
-                  }
-                ]
-              }
+              qState: "O"
             },
             {
-              qText: "9",
-              qNum: 9,
+              qText: "106 836",
+              qNum: 106836,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "520",
+              qNum: 520,
               qElemNumber: 0,
               qState: "L"
             }
           ],
           [
             {
-              qText: "Baked Goods",
-              qNum: "NaN",
-              qElemNumber: 1,
-              qState: "S"
-            },
-            {
-              qText: "Bagels",
+              qText: "июль",
               qNum: "NaN",
               qElemNumber: 2,
-              qState: "O",
-              qAttrExps: {
-                qValues: [
-                  {
-                    qText: "RGB(0,128,0)",
-                    qNum: 4278222848
-                  }
-                ]
-              }
+              qState: "O"
             },
             {
-              qText: "2",
-              qNum: 2,
+              qText: "106 548",
+              qNum: 106548,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "514",
+              qNum: 514,
               qElemNumber: 0,
               qState: "L"
             }
           ],
           [
             {
-              qText: "Breakfast Foods",
+              qText: "август",
               qNum: "NaN",
-              qElemNumber: 4,
-              qState: "S"
+              qElemNumber: 0,
+              qState: "O"
             },
             {
-              qText: "Cereal",
-              qNum: "NaN",
-              qElemNumber: 18,
-              qState: "O",
-              qAttrExps: {
-                qValues: [
-                  {
-                    qText: "RGB(0,0,128)",
-                    qNum: 4278190208
-                  }
-                ]
-              }
+              qText: "75 688",
+              qNum: 75688,
+              qElemNumber: 0,
+              qState: "L"
             },
             {
-              qText: "16",
-              qNum: 16,
+              qText: "499",
+              qNum: 499,
+              qElemNumber: 0,
+              qState: "L"
+            }
+          ],
+          [
+            {
+              qText: "сентябрь",
+              qNum: "NaN",
+              qElemNumber: 8,
+              qState: "O"
+            },
+            {
+              qText: "55 910",
+              qNum: 55910,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "504",
+              qNum: 504,
+              qElemNumber: 0,
+              qState: "L"
+            }
+          ],
+          [
+            {
+              qText: "октябрь",
+              qNum: "NaN",
+              qElemNumber: 7,
+              qState: "O"
+            },
+            {
+              qText: "64 784",
+              qNum: 64784,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "492",
+              qNum: 492,
+              qElemNumber: 0,
+              qState: "L"
+            }
+          ],
+          [
+            {
+              qText: "ноябрь",
+              qNum: "NaN",
+              qElemNumber: 6,
+              qState: "O"
+            },
+            {
+              qText: "75 746",
+              qNum: 75746,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "486",
+              qNum: 486,
+              qElemNumber: 0,
+              qState: "L"
+            }
+          ],
+          [
+            {
+              qText: "декабрь",
+              qNum: "NaN",
+              qElemNumber: 11,
+              qState: "O"
+            },
+            {
+              qText: "49 370",
+              qNum: 49370,
+              qElemNumber: 0,
+              qState: "L"
+            },
+            {
+              qText: "296",
+              qNum: 296,
               qElemNumber: 0,
               qState: "L"
             }
@@ -303,79 +375,77 @@ var layout = {
           {
             qUp: 0,
             qDown: 0
-          },
-          {
-            qUp: 0,
-            qDown: 0
           }
         ],
         qArea: {
           qLeft: 0,
           qTop: 0,
           qWidth: 3,
-          qHeight: 6
+          qHeight: 12
         }
       }
     ],
-    qMode: "S"
+    qPivotDataPages: [],
+    qStackedDataPages: [],
+    qMode: "S",
+    qNoOfLeftDims: -1,
+    qTreeNodesOnDim: [],
+    qColumnOrder: []
   }
 };
 
-// data setting that will be passed to picasso
-var data = [
+const data = [
   {
-    type: "q",
-    key: "qHyperCube",
+    type: 'q',
+    key: 'qHyperCube',
     data: layout.qHyperCube
   }
 ];
 
-// -------- END DATA -----------
-
 const settings = {
   scales: {
     x: {
-      data: { field: "qMeasureInfo/0" },
+      data: { field: 'qMeasureInfo/0' },
       expand: 0.1
     }
   },
   components: [
     {
-      type: "axis",
-      dock: "bottom",
-      scale: "x"
+      type: 'axis',
+      dock: 'bottom',
+      scale: 'x'
     },
     {
-      key: "points",
-      type: "point",
+      key: 'points',
+      type: 'point',
       data: {
         extract: {
-          field: "qDimensionInfo/1",
+          field: 'qDimensionInfo/0',
           props: {
             fill: {
-              field: "qDimensionInfo/1/qAttrExprInfo/0",
+              field: 'qDimensionInfo/1/qAttrExprInfo/0',
               value: v => v.qText
-            }, // extract the qText value from the attribute expression used for coloring
-            end: { field: "qMeasureInfo/0" }
+            },
+            end: { field: 'qMeasureInfo/0' }
           }
         }
       },
       settings: {
-        x: { scale: "x", ref: "end" },
-        fill: { ref: "fill" } // apply the extracted values (no scale needed)
+        x: { scale: 'x', ref: 'end' },
+        fill: { ref: 'fill' }
       }
     }
   ]
 };
 
-var pic = picasso.chart({
-  element: document.querySelector("#container"),
+const chart = picasso.chart({
+  element: document.querySelector('#container'),
   data: data,
   settings
 });
 
 function onresize() {
-  pic.update();
+  chart.update();
 }
 
 window.onresize = onresize;
